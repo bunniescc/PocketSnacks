@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+</head>
+<body>
+<form action="/user/add" method="post">
+    <input type="text" name="username"/>
+    <input type="text" name="password"/>
+    <input type="submit" value="添加">
+    <p th:if="${err_msg!=null}" th:text="${err_msg}"></p>
+</form>
+<table>
+    <tr th:each="user:${users}">
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.password}"></td>
+    </tr>
+</table>
+</body>
+</html>
