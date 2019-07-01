@@ -9,13 +9,25 @@ import java.util.List;
 @Mapper
 @Component
 public interface UserDao {
-    @Select("select * from user")
+    @Select("select * from tb_user")
     List<User> getAllUser();
 
-    @Select("select * from user where username = #{username} limit 1")
+    @Select("select * from tb_user where username=#{username} limit 1")
     User getUserByUsername(@Param("username") String username);
 
-    @Insert("insert into user(username,password) values (#{username},#{password})")
+    @Select("select * from tb_user where uid=#{uid}")
+    User getUserByUid(@Param("uid") int uid);
+
+    @Insert("insert into tb_user(username,password,regTime) values (#{username},#{password},#{regTime})")
     @Options(useGeneratedKeys = true, keyProperty = "uid")
-    int insert(User user);
+    int addUser(User user);
+
+    @Update("update tb_user set username=#{username},password=#{password},phone=#{phone},gender=#{gender},email=#{email} where uid=#{uid}")
+    int updateUser(User user);
+
+    @Delete("delete from tb_user where uid=#{uid}")
+    int deleteUser(@Param("uid") int uid);
+
+    @Select("select count(*) from tb_user")
+    int getUserCount();
 }
