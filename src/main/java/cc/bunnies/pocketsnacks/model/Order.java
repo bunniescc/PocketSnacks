@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Orders {
+public class Order {
     private String oid;         //订单编号，主键
     private int uid;            //用户编号(外键)
     private double totalPrice;  //总价

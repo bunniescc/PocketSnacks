@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class OrdersDetail {
+public class OrderDetail {
     private int detailId;       //编号，主键自动增长
     private int commodityId;    //商品编号(外键)
     private int quantity;       //商品数量
