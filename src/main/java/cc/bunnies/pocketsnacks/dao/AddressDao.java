@@ -9,20 +9,20 @@ import java.util.List;
 public interface AddressDao {
     @Insert("insert into tb_address(uid,fullAddress,phone,zipCode,name,state)values(#{uid},#{fullAddress},#{phone},#{zipCode},#{name},#{state})")
     @Options(useGeneratedKeys = true, keyProperty = "addressId")
-    int createAddress(Address address);
+    int create(Address address);
 
     @Update("update tb_address set fullAddress=#{fullAddress},phone=#{phone},zipCode=#{zipCode},name=#{name},state=#{state} where addressId=#{addressId}")
-    int updateAddress(Address address);
+    int update(Address address);
 
     @Delete("delete from tb_address where addressId=#{aid}")
-    int deleteAddress(@Param("aid") int addressId);
+    int delete(@Param("aid") int addressId);
 
     @Select("select * from tb_address where addressId=#{aid} limit 1")
     Address getAddressById(@Param("aid") int addressId);
 
     @Select("select * from tb_address")
-    List<Address> getAllAddresses();
+    List<Address> getAll();
 
     @Select("select count(*) from tb_address")
-    int getAddressCount();
+    int getCount();
 }

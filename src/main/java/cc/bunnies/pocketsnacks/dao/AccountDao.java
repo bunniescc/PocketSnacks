@@ -7,23 +7,22 @@ import java.util.List;
 
 @Mapper
 public interface AccountDao {
-
     @Insert("insert into tb_account(uid,money)values(#{uid},#{money})")
     @Options(useGeneratedKeys = true, keyProperty = "accountId")
-    int createAccount(Account account);
+    int create(Account account);
 
     @Update("update tb_account set uid=#{uid},money=#{money} where accountId=#{accountId}")
-    int updateAccount(Account account);
+    int update(Account account);
 
     @Delete("delete from tb_account where accountId=#{aid}")
-    int deleteAccount(@Param("aid") int accountId);
+    int delete(@Param("aid") int accountId);
 
     @Select("select * from tb_account where accountId=#{aid} limit 1")
     Account getAccountById(@Param("aid") int accountId);
 
     @Select("select * from tb_account")
-    List<Account> getAllAccounts();
+    List<Account> getAll();
 
     @Select("select count(*) from tb_account")
-    int getAccountCount();
+    int getCount();
 }

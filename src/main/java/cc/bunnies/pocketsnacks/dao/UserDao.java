@@ -20,14 +20,14 @@ public interface UserDao {
 
     @Insert("insert into tb_user(username,password,regTime) values (#{username},#{password},#{regTime})")
     @Options(useGeneratedKeys = true, keyProperty = "uid")
-    int addUser(User user);
+    int create(User user);
 
     @Update("update tb_user set username=#{username},password=#{password},phone=#{phone},gender=#{gender},email=#{email} where uid=#{uid}")
-    int updateUser(User user);
+    int update(User user);
 
     @Delete("delete from tb_user where uid=#{uid}")
-    int deleteUser(@Param("uid") int uid);
+    int delete(@Param("uid") int uid);
 
     @Select("select count(*) from tb_user")
-    int getUserCount();
+    int getCount();
 }
