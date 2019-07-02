@@ -1,3 +1,5 @@
+SET FOREIGN_KEY_CHECKS=0;
+
 DROP TABLE IF EXISTS `tb_account`;
 CREATE TABLE `tb_account` (
   `account_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '账户编号',
@@ -19,7 +21,7 @@ CREATE TABLE `tb_user` (
   PRIMARY KEY (`uid`),
   KEY `FK_Reference_3` (`account_id`),
   CONSTRAINT `FK_Reference_3` FOREIGN KEY (`account_id`) REFERENCES `tb_account` (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `tb_address`;
 CREATE TABLE `tb_address` (
