@@ -3,6 +3,8 @@ package cc.bunnies.pocketsnacks.model;
 import lombok.Builder;
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 @Data
 @Builder
 public class User {
@@ -12,6 +14,6 @@ public class User {
     private String phone;       //手机号码
     private String gender;      //性别
     private String email;       //邮箱
-    private long regTime;       //注册时间
+    private Timestamp regTime;  //注册时间
     private int accountId;      //账户编号
 }
