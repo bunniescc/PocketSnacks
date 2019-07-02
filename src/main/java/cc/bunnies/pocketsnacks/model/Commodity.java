@@ -3,6 +3,8 @@ package cc.bunnies.pocketsnacks.model;
 import lombok.Builder;
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 @Data
 @Builder
 public class Commodity {
@@ -14,7 +16,7 @@ public class Commodity {
     private double originalPrice;       //原价
     private String description;         //商品描述
     private String img;                 //商品图片名
-    private long createTime;            //创建时间
+    private Timestamp createTime;       //创建时间
     private int paramId;                //产品参数
     private String brandName;           //品牌名称
     private String categoryName;        //类型名称
