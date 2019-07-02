@@ -9,22 +9,22 @@
 
     // iframe  链接
     $(".UserManagement").click(function () {
-        $(".AccountManagement_c_iframe iframe").attr("src", "userlist.html")
+        $(".AccountManagement_c_iframe iframe").attr("src", "/admin/user/list")
     })
     $(".KindManagement").click(function () {
         $(".AccountManagement_c_iframe iframe").attr("src", "kindlist.html")
     })
     $(".BrandManagement").click(function () {
-        $(".AccountManagement_c_iframe iframe").attr("src", "brandlist.html")
+        $(".AccountManagement_c_iframe iframe").attr("src", "/admin/brand/list")
     })
     $(".FoodManagement").click(function () {
-        $(".AccountManagement_c_iframe iframe").attr("src", "foodlist.html")
+        $(".AccountManagement_c_iframe iframe").attr("src", "/admin/food/list")
     })
     $(".OrdersManagement").click(function () {
-        $(".AccountManagement_c_iframe iframe").attr("src", "orderlist.html")
+        $(".AccountManagement_c_iframe iframe").attr("src", "/admin/order/list")
     })
     $(".AccountManagement").click(function () {
-        $(".AccountManagement_c_iframe iframe").attr("src", "accountlist.html")
+        $(".AccountManagement_c_iframe iframe").attr("src", "/admin/account/list")
     })
 
     // pull page   翻页
@@ -73,43 +73,16 @@
         $("#edit_column").fadeOut(100);
         $("#delete_column").fadeOut(100);
     })
-    /* // 编辑账户
-     $(".edit_Account_btn").click(function(){
-         $("#user_column").fadeIn(100);
-     })
-     //删除账户
-     $(".delete_Account_btn").click(function(){
-         $("#delete_Account").fadeIn(100);
-     })*/
 
     // 栏目管理 -
     $("#add_column_btn").click(function () {
         $("#add_column").fadeIn(100);
     })
-    /*
-    // 编辑栏目
-    $("#edit_column_btn").click(function(){
-        $("#edit_column").fadeIn(100);
-    })
-    */
+
     // 删除栏目
     $("#delete_column_btn").click(function () {
         $("#delete_column").fadeIn(100);
     })
-    /*
- //添加新闻
- $("#add_News_btn").click(function(){
-     $("#MainFrame",window.parent.document).attr("src","page/newsadd.html");
- })
-  // 编辑新闻
- $("#edit_News_btn").click(function(){
-     $("#MainFrame",window.parent.document).attr("src","page/newsedit.html");
- })
- */
-    /*// 删除新闻
-    $("#delete_column_btn").click(function(){
-        $("#delete_column").fadeIn(100);
-    })*/
 
     // 确定 btn 
     $("#add_Account_ok_btn").click(function () {
