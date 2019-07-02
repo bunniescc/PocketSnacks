@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title></title>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <h3>用户管理
         <div class="amcl fr">
             <input type="text" placeholder="用户名" class="fl" name="">
-            <div class="search fl"><img src="/admin/img/search.png"></div>
+            <div class="search fl"><img src="/admin/image/search.png"></div>
         </div>
     </h3>
     <div class="list">
@@ -22,11 +22,11 @@
             <li class="b60"><label>操作</label></li>
         </ul>
         <div class="list_b_c">
-            <ul class="list_b">
-                <li class="b20"><label><input type="checkbox" name=""><span>ahh</span></label></li>
-                <li class="b20"><label>男</label></li>
+            <ul class="list_b" th:each="user:${users}">
+                <li class="b20"><label><input type="checkbox" name=""><span th:text="${user.username}"></span></label></li>
+                <li class="b20"><label th:text="${user.username}">男</label></li>
                 <li class="b20"><label>2012-12-12</label></li>
-                <li class="b20"><label>13212341234</label></li>
+                <li class="b20"><label th:text="${user.phone}">13212341234</label></li>
                 <li class="b60">
                     <a href="userdetail.html">
                         <div class="edit_btn df_btn fl text_center">详情</div>
@@ -58,7 +58,7 @@
         <div class="add_Account_h">
             <div class="add_Account_h_in">
                 添加账户
-                <span class="fr add_Account_close"><img src="/admin/img/close.png"></span>
+                <span class="fr add_Account_close"><img src="/admin/image/close.png"></span>
             </div>
         </div>
         <div class="user_name user_i">
@@ -76,7 +76,7 @@
         <div class="add_Account_h">
             <div class="add_Account_h_in">
                 编辑账户
-                <span class="fr add_Account_close"><img src="/admin/img/close.png"></span>
+                <span class="fr add_Account_close"><img src="/admin/image/close.png"></span>
             </div>
         </div>
         <div class="column_now ">正在编辑 “<span>jiaowuchu</span>”账户</div>
@@ -95,7 +95,7 @@
         <div class="add_Account_h">
             <div class="add_Account_h_in">
                 删除账户
-                <span class="fr add_Account_close"><img src="/admin/img/close.png"></span>
+                <span class="fr add_Account_close"><img src="/admin/image/close.png"></span>
             </div>
         </div>
         <div class="delete_text">确定删除“ <span>jiaopwuchu</span> ”账户吗？</div>
@@ -108,7 +108,7 @@
         <div class="add_Account_h">
             <div class="add_Account_h_in">
                 账户栏目授权
-                <span class="fr add_Account_close"><img src="/admin/img/close.png"></span>
+                <span class="fr add_Account_close"><img src="/admin/image/close.png"></span>
             </div>
         </div>
         <ul>
