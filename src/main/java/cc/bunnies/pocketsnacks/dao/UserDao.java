@@ -12,6 +12,9 @@ public interface UserDao {
     @Select("select * from tb_user")
     List<User> getAllUser();
 
+    @Select("select * from tb_user limit #{st},#{size}")
+    List<User> getUsersByPage(@Param("st") int start, @Param("size") int size);
+
     @Select("select * from tb_user where username=#{username} limit 1")
     User getUserByUsername(@Param("username") String username);
 

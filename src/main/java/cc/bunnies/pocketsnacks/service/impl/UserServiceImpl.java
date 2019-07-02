@@ -6,6 +6,8 @@ import cc.bunnies.pocketsnacks.service.UserService;
 import cc.bunnies.pocketsnacks.util.MultiResult;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -38,5 +40,10 @@ public class UserServiceImpl implements UserService {
             int uid = userDao.create(user);
             return uid > 0 ? uid : -2;
         }
+    }
+
+    @Override
+    public List<User> getUsersByPage(int page, int size) {
+        return userDao.getUsersByPage((page - 1) * size, size);
     }
 }
