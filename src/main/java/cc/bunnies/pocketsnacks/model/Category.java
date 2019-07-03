@@ -9,4 +9,5 @@ public class Category {
     private int categoryId;         //分类编号，主键，自动增长
     private int categoryParentId;   //父级编号
     private String name;            //类别名称
+    private String parent;          //父级名称
 }
