@@ -12,7 +12,7 @@
         $(".AccountManagement_c_iframe iframe").attr("src", "/admin/user/list")
     })
     $(".KindManagement").click(function () {
-        $(".AccountManagement_c_iframe iframe").attr("src", "kindlist.html")
+        $(".AccountManagement_c_iframe iframe").attr("src", "/admin/category/list")
     })
     $(".BrandManagement").click(function () {
         $(".AccountManagement_c_iframe iframe").attr("src", "/admin/brand/list")
