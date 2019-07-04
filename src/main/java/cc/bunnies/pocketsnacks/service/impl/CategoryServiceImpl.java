@@ -19,7 +19,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> getCategoriesWithParent() {
-        return categoryDao.getCategoriesByWithParent();
+    public List<Category> getCategoriesWithParentByPage(int page, int size) {
+        return categoryDao.getCategoriesByWithParent((page - 1) * size, size);
+    }
+
+    @Override
+    public int getCount() {
+        return categoryDao.getCountWithParent();
     }
 }

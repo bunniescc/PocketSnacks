@@ -32,7 +32,7 @@
             <ul class="list_b" th:each="category,no:${categories}">
                 <li class="b20"><label><input type="checkbox" name=""><span th:text="${no.count}"></span></label></li>
                 <li class="b20"><label th:text="${category.parent}"></label></li>
-                <li class="b20"><label th:text="${category.name}">饼干蛋糕</label></li>
+                <li class="b20"><label th:text="${category.name}"></label></li>
                 <li class="b60">
                     <a href="kindedit.html">
                         <div class="edit_btn df_btn fl text_center">编辑</div>
@@ -43,21 +43,13 @@
                 </li>
             </ul>
         </div>
-
         <div class="pull_page">
-            <div class="fl pull_page_up">上一页</div>
+            <a class="fl pull_page_up" th:href="${'/admin/category/list?page='+(cur_page-1)}">上一页</a>
             <ul>
-                <li class="on">1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li class="pull_page_df_btn">…</li>
-                <li>12</li>
+                <li th:each="p:${page_nav}" th:class="${p==cur_page?'on':''}"><a th:href="${'/admin/category/list?page='+p}" th:text="${p}"></a></li>
             </ul>
-            <div class="fl pull_page_down">下一页</div>
+            <a class="fl pull_page_down" th:href="${'/admin/category/list?page='+(cur_page+1)}">下一页</a>
         </div>
-
-
     </div>
 </div>
 
