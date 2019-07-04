@@ -11,4 +11,6 @@ public interface UserService {
     int register(User user);
 
     List<User> getUsersByPage(int page, int size);
+
+    int getCount();
 }
