@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="/admin/css/main.css" rel="stylesheet">
+</head>
+<body>
+<!-- 食品管理 -->
+<div class="AccountManagement_c" id="ColumnManagement_c">
+    <h3>食品管理
+        <div class="amcl fr">
+            <input type="text" placeholder="食品名" class="fl" name="">
+            <div class="search fl"><img src="/admin/image/search.png"></div>
+        </div>
+    </h3>
+    <div class="AM_ct text_center">
+        <div class="AM_ct_in">
+            <a href="foodadd.html">
+                <div class="add_btn df_btn fl" id="add_column_btn">添加</div>
+            </a>
+        </div>
+    </div>
+    <div class="list">
+        <ul class="list_h">
+            <li class="b20"><label><input type="checkbox" name="newsId"><span>序号</span></label></li>
+            <li class="b20"><label>食品名称</label></li>
+            <li class="b20"><label>品牌</label></li>
+            <li class="b20"><label>类型</label></li>
+            <li class="b60"><label>操作</label></li>
+        </ul>
+        <div class="list_b_c">
+            <ul class="list_b" th:each="item,no:${commodities}">
+                <li class="b20"><label><input type="checkbox" name=""><span th:text="${no.count}"></span></label></li>
+                <li class="b20"><label th:text="${item.name}"></label></li>
+                <li class="b20"><label th:text="${item.brandName}"></label></li>
+                <li class="b20"><label th:text="${item.categoryName}"></label></li>
+                <li class="b60">
+                    <a href="foodedit.html">
+                        <div class="edit_btn df_btn fl text_center">编辑</div>
+                    </a>
+                    <a href="ItemDeleteItem?newsId=${newsId}">
+                        <div class="delete_btn df_btn fl text_center">删除</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="pull_page">
+            <a class="fl pull_page_up" th:href="${'/admin/food/list?page='+(cur_page-1)}">上一页</a>
+            <ul>
+                <li th:each="p:${page_nav}" th:class="${p==cur_page?'on':''}"><a th:href="${'/admin/food/list?page='+p}" th:text="${p}"></a></li>
+            </ul>
+            <a class="fl pull_page_down" th:href="${'/admin/food/list?page='+(cur_page+1)}">下一页</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+</html>

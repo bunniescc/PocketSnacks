@@ -17,7 +17,7 @@ public class Commodity {
     private String description;         //商品描述
     private String img;                 //商品图片名
     private Timestamp createTime;       //创建时间
-    private int paramId;                //产品参数
+    //private int paramId;                //产品参数
     private String brandName;           //品牌名称
     private String categoryName;        //类型名称
 }
