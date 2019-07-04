@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="/admin/css/main.css" rel="stylesheet">
+</head>
+<body>
+<!-- 订单管理 -->
+<div class="AccountManagement_c" id="ColumnManagement_c">
+    <h3>订单管理</h3>
+    <div class="list">
+        <ul class="list_h">
+            <li class="b20"><label><input type="checkbox" name="newsId"><span>序号</span></label></li>
+            <li class="b20"><label>订单编号</label></li>
+            <li class="b20"><label>食品名称</label></li>
+            <li class="b20"><label>数量</label></li>
+            <li class="b20"><label>订单状态</label></li>
+            <li class="b60"><label>操作</label></li>
+        </ul>
+        <div class="list_b_c">
+            <ul class="list_b" th:each="item,no:${orderDetails}">
+                <li class="b20"><label><input type="checkbox" name=""><span th:text="${no.count}"></span></label></li>
+                <li class="b20"><label th:text="${item.oid}"></label></li>
+                <li class="b20"><label th:text="${item.commodityName}"></label></li>
+                <li class="b20"><label th:text="${item.quantity}"></label></li>
+                <li class="b20" th:switch="${item.state}">
+                    <label th:case="0">待付款</label>
+                    <label th:case="1">待发货</label>
+                    <label th:case="2">待收货</label>
+                    <label th:case="3">待评价</label>
+                </li>
+                <li class="b60">
+                    <a href="orderedit.html">
+                        <div class="edit_btn df_btn fl text_center">编辑</div>
+                    </a>
+                    <a href="ItemDeleteItem?newsId=${newsId}">
+                        <div class="delete_btn df_btn fl text_center">删除</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="pull_page">
+            <a class="fl pull_page_up" th:href="${'/admin/order/list?page='+(cur_page-1)}">上一页</a>
+            <ul>
+                <li th:each="p:${page_nav}" th:class="${p==cur_page?'on':''}"><a
+                        th:href="${'/admin/order/list?page='+p}" th:text="${p}"></a></li>
+            </ul>
+            <a class="fl pull_page_down" th:href="${'/admin/order/list?page='+(cur_page+1)}">下一页</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="/admin/js/jquery.js"></script>
+<script type="text/javascript" src="/admin/js/main.js"></script>
+</html>

@@ -13,4 +13,6 @@ public class OrderDetail {
     private int fid;            //口味编号(外键)
     private int brandId;        //品牌编号(外键)
     private String oid;         //订单编号
+    private String commodityName;
+    private int state;          //订单状态：0:待付款  1:待发货  2:待收货 3:待评价
 }
